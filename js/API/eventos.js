@@ -1,6 +1,7 @@
 // Eventos
 $(document).ready(function(){
 	document.addEventListener("deviceready",function(){
+		window.location.href='#login';
 	$('#regEnviar').tap(function(){
 		var nom=$('#regNom').val();
 		var email=$('#regEmail').val();
