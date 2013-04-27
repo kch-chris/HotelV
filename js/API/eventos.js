@@ -8,16 +8,8 @@ $(document).ready(function(){
 		var tel=$('#regTel').val();
 		if(nom!='' && email!='' && tel!='')
 		{
-			navigator.notification.confirm("Nombre:"+nom+"\nEmail:"+email+"\nTelefono:"+tel,function(botones){
-		switch(botones){
-		case 1:
-		navigator.notification.beep(5);
-		break;
-		case 2:
-		navigator.notification.vibrate(500);
-		break;
-		}
-	},"Titulo","Beep,Vibrar,Salir");
+			EnviarRegistro(nom,tel,email);
+			
 			
 			}
 		else 
