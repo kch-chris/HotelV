@@ -2,13 +2,17 @@
 $(document).ready(function(){
 	document.addEventListener("deviceready",function(){
 		window.location.href='#login';
+	$('regFoto').tap(function() {
+	tomarFoto();
+	});
 	$('#regEnviar').tap(function(){
 		var nom=$('#regNom').val();
 		var email=$('#regEmail').val();
 		var tel=$('#regTel').val();
-		if(nom!='' && email!='' && tel!='')
+		var foto =$('#regFoto').attr('rel');
+		if(nom!='' && email!='' && tel!='' && foto!='')
 		{
-			EnviarRegistro(nom,tel,email);
+			EnviarRegistro(nom,tel,email,foto);
 			
 			
 			}

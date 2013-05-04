@@ -1,6 +1,6 @@
 // Servidor
 
-function EnviarRegistro (nombre,telefono,email)
+function EnviarRegistro (nombre,telefono,email,foto)
 {
 	$.ajax({
   type: "POST",
@@ -9,6 +9,7 @@ function EnviarRegistro (nombre,telefono,email)
 }).done(function( msg ) {
   if(msg==1)
   {
+	 uploadPhoto(foto);
   navigator.notification.confirm("Datos Guardados Satisfactoriamente\n"+disp()['platform'],function(botones){
 		switch(botones){
 		case 1:
