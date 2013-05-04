@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	document.addEventListener("deviceready",function(){
 		window.location.href='#login';
-	$('regFoto').tap(function() {
+	$('#regFoto').tap(function() {
 	tomarFoto();
 	});
 	$('#regEnviar').tap(function(){
