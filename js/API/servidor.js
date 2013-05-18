@@ -9,7 +9,7 @@ function EnviarRegistro (nombre,telefono,email,foto)
 }).done(function( msg ) {
   if(msg==1)
   {
-	 uploadPhoto(foto);
+	 uploadPhoto(foto,nombre);
   navigator.notification.confirm("Datos Guardados Satisfactoriamente\n"+disp()['platform'],function(botones){
 		switch(botones){
 		case 1:
