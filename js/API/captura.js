@@ -9,6 +9,6 @@ function tomarFoto()
 		$('#regFoto').append('<img src="'+path+'" width="100%"/>').attr('rel',path);
 		},  function(error) {
 		navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-	}, {limit:2});
+	}, {limit:1});
 
 }
