@@ -47,7 +47,7 @@ $(document).ready(function(){
 			var hb =$('#nr2 select:eq(1)').val();
 			var ds =$('#nr2 select:eq(2)').val();
 			
-			//reservarHB(th,pr,hb,ds);
+			reservarHB(th,pr,hb,ds);
 			}
 		);
 		},false);
