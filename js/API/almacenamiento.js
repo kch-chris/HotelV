@@ -17,3 +17,29 @@ function isLogin()
 		return false;
 		}
 }
+function accesoBD ()
+{
+	var db = window.openDatabase("hotel", "1.0", "Hotel DB", 5000000);
+	return db;
+	}
+
+function reservaInt(t,p,h,d)
+{
+	accesoBD().trasaction(function(tx) {
+		var f= new Date();
+		var fecha= f.getDate()+'/'+(f.getMonth()+1)+'/'+f.getFullYear();
+     tx.executeSql('CREATE TABLE IF NOT EXISTS reservaciones (id unique, tipoHabitacion, personas, habitaciones, dias)');
+     tx.executeSql('INSERT INTO reservaciones (tipoHabitacion, personas, habitaciones, dias) VALUES ("'+t+'", "'+p+'","'+h+'","'+d+'")');
+	  tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id unique, tipoHabitacion, personas, habitaciones, dias,fecha)');
+     tx.executeSql('INSERT INTO historial (tipoHabitacion, personas, habitaciones, dias) VALUES ("'+t+'", "'+p+'","'+h+'","'+d+'","'+fecha+'")');
+},function(err){
+	alert(err.code);
+	},
+function (){
+	navigator.notification.alert('Esperando por conexion a internet',function(){
+		window.location.href='#page';
+		},'Datos Guardados','Aceptar');
+	}
+);
+	
+}

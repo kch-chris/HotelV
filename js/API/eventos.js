@@ -46,9 +46,15 @@ $(document).ready(function(){
 			var pr =$('#nr2 select:eq(0)').val();
 			var hb =$('#nr2 select:eq(1)').val();
 			var ds =$('#nr2 select:eq(2)').val();
-			
-			reservarHB(th,pr,hb,ds);
-			}
+			if(navigator.connection.type!=Connection.NONE)
+			{
+				reservarHB(th,pr,hb,ds);
+				}
+			else
+			{
+				reservaInt(th,pr,hb,ds);
+				}
+		  }
 		);
 		},false);
 	});
