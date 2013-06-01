@@ -73,7 +73,7 @@ function leerHistorial()
 			alert(err.code);
 			},
 	function(){
-		alert('Historial Leído');
+		navigation.notification.alert('Historial Leído',null,'Historial','Aceptar');
 		}
 	);
 	}
