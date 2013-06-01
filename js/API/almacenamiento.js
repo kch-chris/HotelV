@@ -43,3 +43,36 @@ function (){
 );
 	
 }
+
+function leerHistorial()
+{
+	accesoBD().transaction(function(tx){
+		tx.executeSql('Select * from historial',[],function(tx1,resultado){
+			var largo=resultado.rows.length;
+			if(largo!=0){
+				for(i=0;i<largo;i++)
+				{
+					$('#historial div[data-role=content]').append('  <div data-role="collapsible-set">'+
+            '<div data-role="collapsible" data-collapsed="true">'+
+                '<h3>'+
+                    resultado.rows.item(i).fecha+
+                '</h3>'+
+                'Habitaciones: '+resultado.rows.item(i).habitaciones+'<br/>'+
+                'Personas: '+resultado.rows.item(i).personas+'<br/>'+
+				'Días: '+resultado.rows.item(i).dias+'<br/>'+
+                'Tipo de Habitacion: '+resultado.rows.item(i).tipoHabitacion+''+
+            '</div>'+
+        '</div>');
+					}
+				}
+			},function(err){
+				alert(err.code);
+				});
+		},function(err){
+			alert(err.code);
+			},
+	function(){
+		alert('Historial Leído');
+		}
+	);
+	}
