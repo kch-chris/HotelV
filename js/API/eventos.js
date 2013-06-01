@@ -56,6 +56,14 @@ $(document).ready(function(){
 				}
 		  }
 		);
+		$('#page li:eq(1)').tap(
+		function(){
+			leerHistorial();
+			}
+		 );
+		 document.addEventListener("online",function(){
+			 leerReservas();
+			 },false);
 		},false);
 	});
 	

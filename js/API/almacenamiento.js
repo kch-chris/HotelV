@@ -50,6 +50,7 @@ function leerHistorial()
 		tx.executeSql('Select * from historial',[],function(tx1,resultado){
 			var largo=resultado.rows.length;
 			if(largo!=0){
+				$('#historial div[data-role=content]').html('');
 				for(i=0;i<largo;i++)
 				{
 					$('#historial div[data-role=content]').append('  <div data-role="collapsible-set">'+
@@ -74,5 +75,28 @@ function leerHistorial()
 	function(){
 		alert('Historial Leído');
 		}
+	);
+	}
+	
+function leerReservas() {
+	accesoBD().transaction(function(tx){
+		tx.executeSql('Select * from reservaciones',[],function(tx1,resultado){
+			var largo=resultado.rows.length;
+			if(largo!=0){
+				for(i=0;i<largo;i++)
+				{
+					reservarHB(resultado.rows.item(i).tipoHbitacion,resultado.rows.item(i).personas,resultado.rows.item(i).habitaciones,resultado.rows.item(i).dias);
+					}
+				}
+			},function(err){
+				alert(err.code);
+				});
+				tx.executeSql('Delete from reservaciones');
+		},function(err){
+			alert(err.code);
+			},function(){
+			
+				}
+	
 	);
 	}
