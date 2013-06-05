@@ -31,7 +31,7 @@ function reservaInt(t,p,h,d)
      tx.executeSql('CREATE TABLE IF NOT EXISTS reservaciones (id unique, tipoHabitacion, personas, habitaciones, dias)');
      tx.executeSql('INSERT INTO reservaciones (tipoHabitacion, personas, habitaciones, dias) VALUES ("'+t+'", "'+p+'","'+h+'","'+d+'")');
 	  tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id unique, tipoHabitacion, personas, habitaciones, dias,fecha)');
-     tx.executeSql('INSERT INTO historial (tipoHabitacion, personas, habitaciones, dias) VALUES ("'+t+'", "'+p+'","'+h+'","'+d+'","'+fecha+'")');
+     tx.executeSql('INSERT INTO historial (tipoHabitacion, personas, habitaciones, dias,fecha) VALUES ("'+t+'", "'+p+'","'+h+'","'+d+'","'+fecha+'")');
 },function(err){
 	alert(err.code);
 	},
