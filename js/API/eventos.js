@@ -22,7 +22,8 @@ $(document).ready(function(){
 				navigator.notification.alert('Todos los campos son requeridos',null,"Error de Registro","Aceptar");
 				}
 		});
-		$('#nr1 li').tap(function(){
+	
+	$('#nr1 li').tap(function(){
 			if($(this).index()!=0){
 				switch($(this).index())
 				{
